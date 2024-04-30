@@ -1,4 +1,5 @@
-const { PrismaClient } = require('@prisma/client');
+//const { PrismaClient } = require('@prisma/client');
+const { PrismaClient } = require("../../prisma/generated/client");
 const argon = require('argon2');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
