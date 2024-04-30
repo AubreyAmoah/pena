@@ -153,7 +153,7 @@ module.exports = {
 
         if(userExists) return res.status(401).json({msg:'User already exists'});
         try {
-            const hash = await argon.hash(`${username}${process.env.CODE}`);
+            const hash = await argon.hash(`${username}@${process.env.CODE}`);
             const newUser = await prisma.user.create({
                 data: {
                     username,
