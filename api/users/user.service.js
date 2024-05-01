@@ -136,6 +136,8 @@ module.exports = {
         const userId = decoded.payload.user.id;
         let { username } = req.body
 
+        if (username === "" || null || undefined) return res.status(401).json({msg:'username must not be empty'})
+
         const userExists = await prisma.user.findFirst({
             where: {
                 username
