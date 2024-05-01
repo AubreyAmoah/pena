@@ -111,8 +111,8 @@ module.exports = {
             const newItem = await prisma.item.create({
                 data: {
                     name,
-                    price,
-                    stock,
+                    price : parseFloat(price),
+                    stock : parseInt(stock),
                     available,
                     authorId: userId,
                 }
