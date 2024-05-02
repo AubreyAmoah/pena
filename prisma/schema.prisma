@@ -36,6 +36,7 @@ model Sales {
   item      Item     @relation(fields: [itemId], references: [id])
   itemId    Int
   Quantity  Int
+  sellingPrice Decimal
 }
 
 model Role {

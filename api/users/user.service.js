@@ -74,7 +74,50 @@ module.exports = {
                 }
             })
 
-            if (user) return res.status(200).json(user)
+            if (user) delete user.password; return res.status(200).json(user)
+        } catch (error) {
+            console.log(error)
+            return res.status(500).json({
+                success: 0,
+                data: 'An error ocurred'
+            })
+        }
+    },
+
+    getItems : async (req, res) => {
+        try {
+            const items = await prisma.item.findMany({
+                include: {
+                    Sales: true
+                }
+
+            })
+
+            if (items) return res.status(200).json(items);
+        } catch (error) {
+            return res.status(500).json({
+                success: 0,
+                data: error
+            })
+        }
+    },
+
+    getItem : async (req,res) => {
+        const { id } = req.params;
+
+        const itemId = parseInt(id);
+
+        try {
+            const item = await prisma.item.findUnique({
+                where: {
+                    id : itemId
+                },
+                include: {
+                    Sales: true
+                }
+            })
+
+            if (item) return res.status(200).json(item)
         } catch (error) {
             console.log(error)
             return res.status(500).json({

@@ -136,7 +136,8 @@ exports.Prisma.SalesScalarFieldEnum = {
   totalValue: 'totalValue',
   sellerId: 'sellerId',
   itemId: 'itemId',
-  Quantity: 'Quantity'
+  Quantity: 'Quantity',
+  sellingPrice: 'sellingPrice'
 };
 
 exports.Prisma.RoleScalarFieldEnum = {
